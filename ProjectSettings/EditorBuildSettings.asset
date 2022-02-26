@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Battlefield2.unity
+    guid: bfb0fee5922130d4ba8dc0a7bf684c82
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: f8d6997a2a6da74489432324335ece83
+  - enabled: 1
+    path: Assets/Scenes/Select.unity
+    guid: 3718502e78fc8dd488449fb1776809cb
   m_configObjects: {}

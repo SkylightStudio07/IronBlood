@@ -69,7 +69,7 @@ public class Select : MonoBehaviour
     public void turnStage()
     {
         // 스테이지 전환을 위한 함수
-        SceneManager.LoadScene("Battlefield");
+        SceneManager.LoadScene("Battlefield2");
     }
 
 }
