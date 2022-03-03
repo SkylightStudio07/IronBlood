@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
 
     public bool isSpawn = false;
 
-    public float spawnDelay = 1.5f;
+    public float spawnDelay = 6f;
 
     float spawnTimer = 0f;
 
@@ -86,12 +86,27 @@ public class Enemy : MonoBehaviour
 
     }
 
-
+    void Difficulty()
+    {
+        if (GameManager.score > 5 && GameManager.score < 10)
+        {
+            spawnDelay = 5f;
+        }
+        if (GameManager.score > 10 && GameManager.score < 20)
+        {
+            spawnDelay = 4f;
+        }
+        if (GameManager.score > 20)
+        {
+            spawnDelay = 3f;
+        }
+    }
 
     // Update is called once per frame
 
     void Update()
     {
         SpawnEnemy();
+        Difficulty();
     }
 }

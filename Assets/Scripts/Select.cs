@@ -49,9 +49,9 @@ public class Select : MonoBehaviour
 
         }
         turn.eulerAngles = new Vector3(0, value, 0);
-        // °¢µµ¸¦ ÃøÁ¤
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         transform.rotation = Quaternion.Slerp(transform.rotation, turn, Time.deltaTime * 5.0f);
-        // È¸Àü
+        // È¸ï¿½ï¿½
     }
 
     public void turnLeft()
@@ -68,8 +68,15 @@ public class Select : MonoBehaviour
 
     public void turnStage()
     {
-        // ½ºÅ×ÀÌÁö ÀüÈ¯À» À§ÇÑ ÇÔ¼ö
-        SceneManager.LoadScene("Battlefield2");
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
+        if (Num == 2)
+        {
+            SceneManager.LoadScene("Battlefield2");
+        }
+        if (Num == 0)
+        {
+            SceneManager.LoadScene("Battlefield3");
+        }
     }
 
 }

@@ -5,23 +5,25 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
 
-    public bool view = true; // true = Å¾ºä
+    public bool view = true; // true = Å¾ï¿½ï¿½
                             // false = TPS
 
-    public float turnSpeed = 4.0f; // ¸¶¿ì½º È¸Àü ¼Óµµ
-    public float moveSpeed = 2.0f; // ÀÌµ¿ ¼Óµµ
+    public float turnSpeed = 4.0f; // ï¿½ï¿½ï¿½ì½º È¸ï¿½ï¿½ ï¿½Óµï¿½
+    public float moveSpeed = 2.0f; // ï¿½Ìµï¿½ ï¿½Óµï¿½
 
-    private float xRotate = 0.0f; // ³»ºÎ »ç¿ëÇÒ XÃà È¸Àü·®Àº º°µµ Á¤ÀÇ ( Ä«¸Þ¶ó À§ ¾Æ·¡ ¹æÇâ )
+    private float xRotate = 0.0f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Xï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 
-    public Transform target;        // µû¶ó´Ù´Ò Å¸°Ù ¿ÀºêÁ§Æ®ÀÇ Transform
+    public Transform target;        // ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Transform
 
-    private Transform tr;                // Ä«¸Þ¶ó ÀÚ½ÅÀÇ Transform
+    private Transform tr;                // Ä«ï¿½Þ¶ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ Transform
 
     void Start()
     {
         tr = GetComponent<Transform>();
     }
 
+
+    public float cameraSpeed = 5.0f;
     public GameObject player;
     private Vector3 offset = new Vector3(0, 2, -2);
 
@@ -29,20 +31,18 @@ public class FollowPlayer : MonoBehaviour
     {
         if (view == true)
         {
-
-            MouseRotation();
-            KeyboardMove();
-
+        MouseRotation();
+        KeyboardMove();
         }
         if (Input.GetKey(KeyCode.Q) && view == true)
         {
-            Debug.Log("½ºÆäÀÌ½º");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½");
                 view = false;
                 transform.position = new Vector3(300, 100, 300);
         }
         if (Input.GetKey(KeyCode.E) && view == false)
         {
-            Debug.Log("½ºÆäÀÌ½º");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½");
             view = true;
         }
     }
@@ -73,19 +73,19 @@ public class FollowPlayer : MonoBehaviour
 
         xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 80);
 
-        transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
+        transform.eulerAngles = new Vector3(0, yRotate, 0);
     }
 
-    // Å°º¸µåÀÇ ´­¸²¿¡ µû¶ó ÀÌµ¿
+    // Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
     void KeyboardMove()
     {
-        // WASD Å° ¶Ç´Â È­»ìÇ¥Å°ÀÇ ÀÌµ¿·®À» ÃøÁ¤
+        // WASD Å° ï¿½Ç´ï¿½ È­ï¿½ï¿½Ç¥Å°ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Vector3 dir = new Vector3(
             Input.GetAxis("Horizontal"),
             0,
             Input.GetAxis("Vertical")
         );
-        // ÀÌµ¿¹æÇâ * ¼Óµµ * ÇÁ·¹ÀÓ´ÜÀ§ ½Ã°£À» °öÇØ¼­ Ä«¸Þ¶óÀÇ Æ®·£½ºÆûÀ» ÀÌµ¿
+        // ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ * ï¿½Óµï¿½ * ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ Ä«ï¿½Þ¶ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
         transform.Translate(dir * moveSpeed * Time.deltaTime);
     }
 }

@@ -11,7 +11,6 @@ public class TextControl : MonoBehaviour
     public GameObject MPKey;
     public GameObject GameOverScreen;
 
-
     public bool isStart = false;
 
 
@@ -47,6 +46,7 @@ public class TextControl : MonoBehaviour
 
             if (Input.GetKey(KeyCode.T))
             {
+                GameManager.score = 0;
                 SceneManager.LoadScene("Title");
             }
         }

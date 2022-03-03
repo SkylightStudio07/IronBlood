@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
     private Transform Player;
     public NavMeshAgent nav;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,8 +33,19 @@ public class EnemyController : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Bullet"))
+
         {
-            Destroy(gameObject);
+            GameManager.instance.AddScore();
+            Destroyed();
         }
+        if (col.gameObject.CompareTag("Barrier"))        
+        {
+            Destroyed();
+        }
+        
+    }
+    void Destroyed() {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

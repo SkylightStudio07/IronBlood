@@ -13,9 +13,19 @@ public class Bullet : MonoBehaviour
     }
     void Outcheck()
     {
-        if (transform.position.y < 0.5 || transform.position.y > 500)
+        if (transform.position.y < 0.5 || transform.position.y > 10)
         {
             Destroy(gameObject);
         }
+
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("Barrier"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 }

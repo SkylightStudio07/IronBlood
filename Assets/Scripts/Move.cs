@@ -4,14 +4,13 @@ using System.Collections;
 
 public class Move : MonoBehaviour
 {
-    // //Àº ÁÖ¼® ÀÔ´Ï´Ù.
-    // Vector2´Â X, Y °ªÀ» °¡Áý´Ï´Ù.
-    // Vector3´Â X, Y, Z °ªÀ» °¡Áý´Ï´Ù.
+    // //ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½Ô´Ï´ï¿½.
+    // Vector2ï¿½ï¿½ X, Y ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+    // Vector3ï¿½ï¿½ X, Y, Z ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 
     public float moveSpeed = 30;
     public float rotSpeed = 0.2f;
 
-    public float rotationSpeed = 5.0f;
     Rigidbody body;
 
     public bool isPlayerMove;
